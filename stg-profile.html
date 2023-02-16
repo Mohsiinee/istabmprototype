@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile du stagiaire - ISTA Béni Mellal</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        .profile-brand {
+            padding: 1em;
+            border-bottom: solid 2px #4e525e;
+        }
+
+        .navbar {
+            width: 200px;
+            z-index: 10;
+            height: 100%;
+            background-color: #5c616e;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 2em 0em;
+        }
+
+        .navbar li {
+            margin-bottom: 20px;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+
+        .main {
+            margin-left: 250px;
+            margin-bottom: 4em;
+            padding: 20px;
+            color: #4e525e;
+        }
+
+        .student-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4em;
+        }
+
+        .student-card img {
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 8px;
+        }
+        .schedule-table table, .schedule-table td, .schedule-table th {
+            border: 1px solid #4e525e;
+            border-collapse: collapse
+        }
+
+        th {
+            background-color: #e9e9e9;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        td:first-child {
+            text-align: left;
+        }
+
+
+        .footer {
+            position: fixed;
+            font-size: smaller;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #5c616e;
+            color: #fff;
+            text-align: center;
+        }
+        .section {
+            margin-top: 4em;
+        }
+        .schedule-table td.marked {
+            background-color: #b6e4ff;
+        }
+        .schedule-table td.markedbr, .schedule-table th.markedbr {
+            background-color: #4e525e;
+            border: solid 1px #4e525e;
+        }
+        .modules li {
+            padding: .5em 0em;
+            margin: .5em 0em;
+        }
+        .modules span {
+          margin: 0em 1em;
+        }
+
+        #pdf-preview {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.8);
+          display: none;
+          z-index: 999;
+        }
+
+        #pdf-preview-close-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          font-size: 24px;
+          color: #fff;
+          cursor: pointer;
+        }
+
+        #pdf-preview-iframe {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 80%;
+          height: 80%;
+          border: none;
+        }
+
+
+        .card {
+          border: 1px solid #ccc;
+          box-shadow: 2px 2px 6px #ccc;
+          padding: 20px;
+          width: 300px;
+        }
+
+        .card img {
+          width: 100%;
+          height: auto;
+          margin-bottom: 10px;
+        }
+
+        .card h3 {
+          font-size: 24px;
+          margin-bottom: 10px;
+        }
+
+        .card p {
+          font-size: 16px;
+          margin-bottom: 20px;
+        }
+        .card-wrp {
+          display: flex;
+          justify-content: space-around;
+          align-items: flex-start;
+        }
+
+
+        .book-wrapper {
+          display: flex;
+          margin-bottom: 10em;
+        }
+
+        .book-image {
+          width: 100%;
+          margin-right: 20px;
+        }
+
+        .book-image img {
+          width: 100%;
+          height: auto;
+        }
+
+        .book-title {
+          margin-top: 0;
+          margin-bottom: 5px;
+          font-size: 24px;
+        }
+
+        .book-author {
+          margin-top: 0;
+          margin-bottom: 10px;
+          font-style: italic;
+        }
+
+        .book-metadata {
+          margin-top: 0;
+          margin-bottom: 0;
+          font-size: 14px;
+          text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="profile-brand">ISTA Béni Mellal</div>
+        <ul>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#fav">Favoris</a></li>
+            <li><a href="#note">Les notes</a></li>
+            <li><a href="#emploi">Emplois du temps</a></li>
+            <li><a href="#module">Modules</a></li>
+            <li><a href="#orientation">Orientation</a></li>
+            <li><a href="#club">Clubs et Organisations</a></li>
+            <li><a href="#e-library">e-library</a></li>
+            <li><a href="#notification">Notification</a></li>
+        </ul>
+        <ul>
+            <li><a href="./se-connecter.html">Se déconnecter</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="student-card" id="profile">
+            <img src="../assets/Mohsine Bakhcha.jpg" alt="Student Photo">
+            <div>
+                <h2>Bakhcha Mohsine</h2>
+                <p>Stagiaire - TEI 101</p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="favoris" id="fav">
+                <h2>Favoris:</h2>
+                <p>aucun favori à afficher</p>
+            </div>
+        </div>
+        <div class="section" id="note">
+            <h2>Les notes:</h2>
+            <div class="note-table">
+                <table>
+                    <thead>
+                      <tr>
+                        <th>Module</th>
+                        <th>Controle 1</th>
+                        <th>Controle 2</th>
+                        <th>Controle 3</th>
+                        <th>EFM</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>M101 - Métier et Formation</td>
+                        <td>18</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>35</td>
+                      </tr>
+                      <tr>
+                        <td>M102 - Interpréter le secteur électriques dans tous ses états et perspectives d'évolution</td>
+                        <td>16.5</td>
+                        <td>17</td>
+                        <td>-</td>
+                        <td>35</td>
+                      </tr>
+                      <tr>
+                        <td>M103 - Hygiène, Sécurité en Environnement (HSE)</td>
+                        <td>20</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>40</td>
+                      </tr>
+                      <tr>
+                        <td>M104 - Realisation des croquis et schémas</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>M105 - Analyse des circuits à courant continu et altérnative</td>
+                        <td>14</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>M106 - Installation, raccordement et entretien de luminaires</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>M107 - Effectuer l'installation et le raccordement de tableaux de distribution basse tension et des circuits de dérivation</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>M108 - l'usinage manuel</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>M109 - Installation et raccordement  des transformateurs et des machines rotatives et leurs circuits de commande</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>M110 - Assembler les composants d'une armoire électrique industrielle</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>M111 - Utilisation micro-ordinateur </td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>M112 - Montage des circuits pneumatique et electropneumatique</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>M113 - sensibilisation à la qualité</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>M114 - Installation cables canalisation</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>M115 - Analyse de circuits à semi-conducteurs</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>M116 - Analyse de circuits électroniques de puissance</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>M117 - Logique combinatoire</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>M118 - Installation et dépannage de moteurs et de génératrices à Courant Continu</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section" id="emploi">
+            <h2>Emploi du temps - TEI 101</h2>
+            <div class="schedule-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>8:30 - 11:00</th>
+                      <th>11:00 - 13:30</th>
+                      <th class="markedbr"></th>
+                      <th>13:30 - 16:00</th>
+                      <th>16:00 - 18:30</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>Lundi</th>
+                      <td></td>
+                      <td></td>
+                      <td class="markedbr"></td>
+                      <td class="marked">Mr Moustajab (S5)</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th>Mardi</th>
+                      <td colspan="2" class="marked">Mr Houkmi (at EMI 2)</td>
+                      <td class="markedbr"></td>
+                      <td></td>
+                      <td class="marked">Mr Aboumsik (S5)</td>
+                    </tr>
+                    <tr>
+                      <th>Mercredi</th>
+                      <td colspan="2" class="marked">Mr Hassnaoui (at EMI 1)</td>
+                      <td class="markedbr"></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th>Jeudi</th>
+                      <td class="marked">Mr Eddafali (S2)</td>
+                      <td></td>
+                      <td class="markedbr"></td>
+                      <td class="marked">Mme Bennani (at EMI 1)</td>
+                      <td class="marked">Mr Ouaatab</td>
+                    </tr>
+                    <tr>
+                      <th>Vendredi</th>
+                      <td class="marked">Mme Bennani (at EMI 1) S/M</td>
+                      <td class="marked">Mr Belaoud (S5)</td>
+                      <td class="markedbr"></td>
+                      <td></td>
+                      <td class="marked">Mr Boussif (S3)</td>
+                    </tr>
+                    <tr>
+                      <th>Samedi</th>
+                      <td class="marked" colspan="2">Mr Eddafali (S2)</td>
+                      <td class="markedbr"></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>              
+        </div>
+        <div class="section modules" id="module">
+            <h2>Modules</h2>
+            <ul>
+                <li>M101 - Métier et Formation <a href="../assets/TEI_M01_FUSIONNEE.pdf" target="_blank" rel="noopener noreferrer"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>
+                <li>M102 - Interpréter le secteur électriques dans tous ses états et perspectives d'évolution<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li> 
+                <li>M103 - Hygiène, Sécurité en Environnement (HSE)<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>  
+                <li>M104 - Realisation des croquis et schémas<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>
+                <li>M105 - Analyse des circuits à courant continu et altérnative<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>
+                <li>M106 - Installation, raccordement et entretien de luminaires<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>    
+                <li>M107 - Effectuer l'installation et le raccordement de tableaux de distribution basse tension et des circuits de dérivation<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>   
+                <li>M108 - l'usinage manuel<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>
+                <li>M109 - Installation et raccordement  des transformateurs et des machines rotatives et leurs circuits de commande<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>
+                <li>M110 - Assembler les composants d'une armoire électrique industrielle<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>
+                <li>M111 - Utilisation micro-ordinateur <a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>
+                <li>M112 - Montage des circuits pneumatique et electropneumatique<a href="../assets/Module 24 – Analyse de circuits pneumatiques.pdf" target="_blank" rel="noopener noreferrer"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>
+                <li>M113 - sensibilisation à la qualité<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>
+                <li>M114 - Installation cables canalisation<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>
+                <li>M115 - Analyse de circuits à semi-conducteurs<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li> 
+                <li>M116 - Analyse de circuits électroniques de puissance<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>
+                <li>M117 - Logique combinatoire<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>
+                <li>M118 - Installation et dépannage de moteurs et de génératrices à Courant Continu<a href="#"><span>Cours</span></a><a href="#"><span>Exercice</span></a></li>
+            </ul>
+            <div id="pdf-preview">
+              <div id="pdf-preview-close-btn">&times;</div>
+              <iframe id="pdf-preview-iframe"></iframe>
+            </div>
+        </div>
+
+        <div class="section" id="orientation">
+          <h2>Orientation</h2>
+          <p>
+            Bienvenue au Centre d'Orientation de l'ISTA Beni Mellal. Notre mission est d'aider les étudiants à atteindre leur plein potentiel en les aidant à identifier et à poursuivre des carrières qui correspondent à leurs intérêts, leurs compétences et leurs objectifs. 
+            <br><br>Nous offrons des ressources et des conseils pour aider les étudiants à explorer les possibilités de carrière, à acquérir des compétences professionnelles, à établir des réseaux et à trouver des stages et des emplois. Notre équipe expérimentée est à votre disposition pour vous aider à élaborer un plan de carrière solide et à réussir sur le marché du travail.
+          </p>
+        </div>
+
+        <div class="section" id="club">
+          <h2>Clubs et organisation</h2>
+          <p>
+            Bienvenue sur la page "Clubs et Organisations" de notre site de l'ISTA. Nous croyons que l'implication dans des clubs et organisations peut offrir aux étudiants une expérience éducative complète et enrichissante. 
+            <br><br>Cette page fournit des informations sur les clubs et organisations disponibles à l'ISTA, ainsi que des détails sur la façon de rejoindre un club ou une organisation. Les clubs et organisations peuvent fournir une occasion pour les étudiants de rencontrer des personnes partageant les mêmes intérêts, de développer des compétences en leadership, et d'élargir leur perspective sur la vie. 
+            <br><br>Venez découvrir les clubs et organisations offerts à l'ISTA et trouvez celui qui convient à vos intérêts et objectifs.
+          </p>
+          <div class="card-wrp">
+            <div class="card">
+              <img src="../assets/Ambassadeur cellule d'orientation.jpg" alt="Ambassadeur cellule d'orientation">
+              <h3>Ambassadeur cellule d'orientation</h3>
+              <p>les ambassadeurs sont un groupe de stagiaire en formation sélectionnés par le dirécteur pédagogique et le conseiller d'orientation au sein de l'ISTA.
+                dans le but de faire connaître et de promouvoir l'activité de la cellule d'orientation.
+              </p>
+              <button href="#" class="btn">Lire plus</button>
+            </div>
+            
+            <div class="card">
+              <img src="../assets/football-team.jpg" alt="football club">
+              <h3>équipe TEI 101 de football</h3>
+              <p>L'équipe de football de notre classe en ISTA est composée de joueurs passionnés, déterminés et compétitifs. Nous travaillons ensemble pour améliorer notre jeu, notre communication sur le terrain et notre esprit d'équipe. Nous sommes fiers de représenter notre classe et de participer à des matchs amicaux contre d'autres équipes. </p>
+              <button href="#">Lire plus</button>
+            </div> 
+          </div>         
+        </div>
+
+        <div class="section" id="e-library">
+          <h2>e-library</h2>
+          <div class="book-wrapper">
+            <div class="book-image">
+              <img src="../assets/electricite-general-book-cover.jpg" alt="Book Cover">
+            </div>
+            <div class="book-details">
+              <h2 class="book-title">Electricité générale </h2>
+              <p class="book-author">Tahar Neffati</p>
+              <div class="book-description">
+                <p>
+                  Ce cours complet d'électricité est destiné aux étudiants en IUT et en Licences. Sont exposées les notions importantes sur les circuits électriques et sur leurs méthodes d'analyse en régime statique et en régime sinusoïdal. Sont ensuite traitées la modélisation et la caractérisation des quadripôles (filtre, ampli, régime transitoire), qui est une introduction à l'électronique. Chaque chapitre est accompagné de nombreux exercices corrigés. Le dernier chapitre regroupe des problèmes de synthèse qui aideront l'étudiant à évaluer ses connaissances globales en électricité et à préparer ses examens avec le maximum d'efficacité. Dans cette nouvelle édition entièrement révisée, de nouveaux exercices et problèmes ont été introduits ainsi que les résumés des principales notions à retenir.
+                </p>
+              </div>
+              <p class="book-metadata">2008 ----- français ----- PDF ----- 2.8 Mb</p>
+              <button>Télécharger</button>
+            </div>
+          </div>  
+          <div class="book-wrapper">
+            <div class="book-image">
+              <img src="../assets/principe-electrotechnique-book-cover.jpg" alt="Book Cover">
+            </div>
+            <div class="book-details">
+              <h2 class="book-title">Principes d'electrotechnique : Cours et exercices corriges</h2>
+              <p class="book-author">Max Marty, Daniel Dixneuf, Delphine Garcia Gilabert</p>
+              <div class="book-description">
+                <p>
+                  Cet ouvrage propose des exercices et des problèmes corrigés d'électrot echnique sur l'ensemble des notions à connaître sur la manipulation de s circuits et des puissances électriques. Des circuits monophasés et triphasés en alternatif sinusoïdal jusqu'au x moteurs électriques vus sous différents angles, en passant par l'étu de des transformateurs, des régimes transitoires, des grandeurs non si nusoïdales et harmoniques, le lecteur sera sûr de balayer l'ensemble d u programme à travers un travail personnel efficace.
+                </p>
+              </div>
+              <p class="book-metadata">2011 ----- français ----- PDF ----- 5.03 Mb</p>
+              <button>Télécharger</button>
+            </div>
+          </div>         
+        </div>
+
+        <div class="section" id="notification">
+          <h2>Notification</h2>
+          <p>
+            aucune notification à afficher
+          </p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 ISTA Beni Mellal</p>
+    </div>
+
+
+    <script>
+      // Get the preview elements
+      const preview = document.getElementById('pdf-preview');
+      const previewIframe = document.getElementById('pdf-preview-iframe');
+      const previewCloseBtn = document.getElementById('pdf-preview-close-btn');
+
+      // Attach click event listeners to all PDF links
+      const pdfLinks = document.querySelectorAll('a[href$=".pdf"]');
+      pdfLinks.forEach(link => {
+        link.addEventListener('click', event => {
+          event.preventDefault();
+          const pdfSrc = link.getAttribute('href');
+          previewIframe.setAttribute('src', pdfSrc);
+          preview.style.display = 'block';
+        });
+      });
+
+      // Attach click event listener to close button
+      previewCloseBtn.addEventListener('click', () => {
+        previewIframe.setAttribute('src', '');
+        preview.style.display = 'none';
+      });
+
+    </script>
+</body>
+</html>
