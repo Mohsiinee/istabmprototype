@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISTA Beni Mellal</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>    
     <div class="login-page">
@@ -26,6 +26,6 @@
 
       <!--<button style="position: absolute; top: 1em; left: 1em; width: fit-content;">Retour à l'accueil</button>-->
 
-    <script src="./script.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 </html>

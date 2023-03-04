@@ -5,44 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISTA Beni Mellal</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <header class="page">
-        <nav class="navbar"><div class="lg">
-          <a href="./index.html" class="navbar-logo"><img src="./logo.png" alt=""></a></div>
-          <ul class="navbar-list">
-            <li class="nav-item">
-              <a href="./index.html" class="nav-link">Accueil</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Formation</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdown">
-                <a class="dropdown-item" href="./technicien-specialise.html">Technicien spécialisé</a>
-                <a class="dropdown-item" href="./technicien.html">Technicien</a>
-                <a class="dropdown-item" href="./specialisation.html">Spécialisation</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a href="./admission.html" class="nav-link">Admission</a>
-            </li>
-            <li class="nav-item">
-              <a href="./espace-pro.html" class="nav-link">Espace Pro</a>
-            </li>
-            <li class="nav-item">
-              <a href="./actualités.html" class="nav-link">Actualités</a>
-            </li>
-            <li class="nav-item">
-              <a href="./contact.html" class="nav-link">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a href="./réglement.html" class="nav-link">Réglement</a>
-            </li>
-            <li class="nav-item">
-              <a href="./se-connecter.html" class="nav-link">Se connecter</a>
-            </li>
-          </ul>
-        </nav>
+    <?php include("assets/php/navbar.html");?>
         
         <div class="page-header">
             <h1>Electricité industrielle</h1>
@@ -109,41 +76,8 @@
         </div>
     </div>
 
-
-
-    <footer>
-      <div class="footer-container">
-        <div class="footer-col">
-          <img src="./logo.png" alt="Logo">
-        </div>
-        <div class="footer-col">
-          <h3>Programmes</h3>
-          <ul>
-            <li>Technicien spécialisé</li>
-            <li>Technicien</li>
-            <li>Spécialisation</li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Admission</h3>
-          <p>En savoir plus sur le processus d'admission pour nos programmes.</p>
-        </div>
-        <div class="footer-col">
-          <h3>Contact</h3>
-          <ul>
-            <li>Bd. 20 Août B.P. 142 route Fquih Ben Salah 23000 Beni Mellal</li>
-            <li>Phone: 05234-83963</li>
-            <li>Email: info@istabm.com</li>
-          </ul>
-        </div>
-      </div>
-      <div class="copyright">
-        <p>
-          <span>© 2023 ISTA Beni Mellal</span><span>-</span><span>Developpeur: TEI 101 groupe 3</span>
-        </p>
-      </div>
-    </footer>
+    <?php include("assets/php/footer.html");?>
     
-    <script src="./script.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 </html>

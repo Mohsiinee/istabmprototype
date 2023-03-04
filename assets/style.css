@@ -18,6 +18,47 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #373941;
 }
+/*Pop-up style - START*/
+.popup-overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+}
+
+.popup-content {
+background-color: white;
+color: #4e525e;
+padding: 20px;
+width: 100%;
+text-align: center;
+border-radius: 5px;
+}
+.popup-content p, .popup-content ul{
+text-align: left;
+}
+
+.close-popup {
+background-color: #4e525e;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 20px;
+}
+.prs-logo img {
+height: 100px;
+margin: 2em;
+}
+/*Pop-up style - END*/
+/*Acceuil style - START*/
 .homepage-header{
     background-image: url("./header-bg.png");
     background-position: center;
@@ -37,6 +78,7 @@ body {
     border-bottom: solid #4e525e 1px;
     top: 0;
     width: 100%;
+    z-index: 10;
 }
 .navbar .lg {
     width: 100px;
@@ -134,8 +176,8 @@ body {
 .welcome div {
     text-align: center;
 }
-
-/*Programme style - START*/
+/*Acceuil style - END*/
+/*Formation style - START*/
 .programme {
     margin: 5em 2em;
 }
@@ -183,7 +225,7 @@ body {
   margin-bottom: 20px;
   color: #333;
 }
-/*Programme style - END*/
+/*Formation style - END*/
 
 /*footer style - START*/
 footer {
@@ -249,7 +291,7 @@ footer ul {
 
 /*footer style - END*/
 
-/*Login Page style - START*/
+/*se connecter style - START*/
 .login-page {
     display: flex;
     align-items: center;
@@ -334,7 +376,7 @@ button:hover, button:active, button:focus {
     text-align: center;
 }
 
-
+/*Contact style - START*/
 .form-group {
   margin-bottom: 1rem;
 }
@@ -393,7 +435,7 @@ input:focus, textarea:focus {
 .contact-info {
   margin: 3em auto;
 }
-/*Contact page*/
+
 .map-container{
   height: 30vh;
   width: 100%;
@@ -403,9 +445,9 @@ input:focus, textarea:focus {
   width: 100%;
 }
 
+/*Contact style - END*/
 
-
-/*Actualités page*/
+/*Actualités page style - START*/
 .container-actualite {
   display: flex;
   justify-content: space-between;
@@ -487,3 +529,4 @@ input:focus, textarea:focus {
   font-size: 14px;
   color: #555
 }
+/*Actualité page style - END*/
