@@ -48,6 +48,15 @@
 
     <div id="footer-container"></div>
     <script src="/assets/templates.js"></script>
-    <script src="/assets/script.js"></script> 
+    <script src="/assets/script.js"></script>
+    <script>
+      const links = document.querySelectorAll('a[href], link[rel="stylesheet"][href], script[src]');
+      for (let i = 0; i < links.length; i++) {
+        const href = links[i].getAttribute('href') || links[i].getAttribute('src');
+        if (href && href[0] === '/') {
+          links[i].setAttribute(links[i].nodeName === 'SCRIPT' ? 'src' : 'href', '/istabmprototype' + href);
+        }
+      }
+    </script>
 </body>
 </html>
