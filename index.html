@@ -37,7 +37,7 @@
           <h1>Institut Spécialisé de Technologie Appliquée Beni Mellal</h1>
           <p>Notre objectif est de préparer les stagiaires pour des carrières réussies dans l'industrie.</p>
           <div>
-            <a href="/istabmprototype/pages/admission.html"><button style="width: 50%;">S'inscrire</button></a>
+            <a href="/pages/admission.html"><button style="width: 50%;">S'inscrire</button></a>
           </div>
         </div>
     </header>
@@ -49,5 +49,14 @@
     <div id="footer-container"></div>
     <script src="/assets/script.js"></script> 
     <script src="/assets/templates.js"></script>
+    <script>
+      const links = document.querySelectorAll('a[href], link[rel="stylesheet"][href], script[src]');
+      for (let i = 0; i < links.length; i++) {
+        const href = links[i].getAttribute('href') || links[i].getAttribute('src');
+        if (href && href[0] === '/') {
+          links[i].setAttribute(href.startsWith('/') ? 'href' : 'src', '/istabmprototype' + href);
+        }
+      }
+    </script>
 </body>
 </html>
