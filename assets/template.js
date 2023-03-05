@@ -6,7 +6,7 @@ if (this.readyState == 4 && this.status == 200) {
     document.getElementById("navbar-container").innerHTML = this.responseText;
 }
 };
-xhttp1.open("GET", "/templates/navbar.html", true);
+xhttp1.open("GET", "/istabmprototype/templates/navbar.html", true);
 xhttp1.send();
 // Load footer
 var xhttp2 = new XMLHttpRequest();
@@ -15,5 +15,5 @@ if (this.readyState == 4 && this.status == 200) {
     document.getElementById("footer-container").innerHTML = this.responseText;
 }
 };
-xhttp2.open("GET", "/templates/footer.html", true);
+xhttp2.open("GET", "/istabmprototype/templates/footer.html", true);
 xhttp2.send();
