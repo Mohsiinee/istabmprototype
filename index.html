@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISTA Beni Mellal</title>
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css">
   </head>
 <body id="body">
     <div class="popup-overlay" id="popup">
       <div class="popup-content">
         <div class="prs-logo">
-          <img src="/images/logo.png" alt="">
-          <img src="/images/PIE logo.jpg" alt="">
+          <img src="./images/logo.png" alt="">
+          <img src="./images/PIE logo.jpg" alt="">
         </div>
         <h2>Site web prototype pour l'ISTA Beni Mellal</h2>
         <p>Nous testons actuellement une version de prototype</p>
@@ -37,7 +37,7 @@
           <h1>Institut Spécialisé de Technologie Appliquée Beni Mellal</h1>
           <p>Notre objectif est de préparer les stagiaires pour des carrières réussies dans l'industrie.</p>
           <div>
-            <a href="/pages/admission.html"><button style="width: 50%;">S'inscrire</button></a>
+            <a href="./pages/admission.html"><button style="width: 50%;">S'inscrire</button></a>
           </div>
         </div>
     </header>
@@ -47,16 +47,27 @@
     </div>
 
     <div id="footer-container"></div>
-    <script src="/assets/template.js"></script>
-    <script src="/assets/script.js"></script>
+    <script src="./assets/script.js"></script>
     <script>
-      const links = document.querySelectorAll('a[href], link[rel="stylesheet"][href], script[src]');
-      for (let i = 0; i < links.length; i++) {
-        const href = links[i].getAttribute('href') || links[i].getAttribute('src');
-        if (href && href[0] === '/') {
-          links[i].setAttribute(links[i].nodeName === 'SCRIPT' ? 'src' : 'href', '/istabmprototype' + href);
-        }
+      //Link Template to website pages
+      // Load navbar
+      var xhttp1 = new XMLHttpRequest();
+      xhttp1.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("navbar-container").innerHTML = this.responseText;
       }
+      };
+      xhttp1.open("GET", "./templates/navbar.html", true);
+      xhttp1.send();
+      // Load footer
+      var xhttp2 = new XMLHttpRequest();
+      xhttp2.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("footer-container").innerHTML = this.responseText;
+      }
+      };
+      xhttp2.open("GET", "./templates/footer.html", true);
+      xhttp2.send();
     </script>
 </body>
 </html>
