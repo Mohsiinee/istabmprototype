@@ -30,12 +30,3 @@
       </p>
     </div>
 </footer>
-<script>
-const links = document.querySelectorAll('a');
-for (let i = 0; i < links.length; i++) {
-  const href = links[i].getAttribute('href');
-  if (href && href[0] === '/') {
-    links[i].setAttribute('href', '/istabmprototype' + href);
-  }
-}
-</script>
