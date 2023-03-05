@@ -23,7 +23,7 @@
           </form>
         </div>
       </div>
-      <a href="/index.html"><button style="position: absolute; top: 1em; left: 1em; width: fit-content;"><span style="padding-right: .5em; font-size: 2rem;">&#8592;</span>Accueil</button></a>
+      <a href="../index.html"><button style="position: absolute; top: 1em; left: 1em; width: fit-content;"><span style="padding-right: .5em; font-size: 2rem;">&#8592;</span>Accueil</button></a>
       <script>
         // se connecter password and email verification
         const form = document.querySelector('.login-form');
@@ -32,7 +32,7 @@
           const email = document.getElementById("email").value;
           const password = document.getElementById("password").value;
           if (email === "mohsine@gmail.com" && password === "2101") {
-            window.location.href = "../pages/stg-profile.html";
+            window.location.href = "./stg-profile.html";
           } else {
             alert("Email or password is incorrect. Please try again.");
           }
