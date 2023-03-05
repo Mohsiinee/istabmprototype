@@ -1,10 +1,3 @@
-const links = document.querySelectorAll('a');
-for (let i = 0; i < links.length; i++) {
-  const href = links[i].getAttribute('href');
-  if (href && href[0] === '/') {
-    links[i].setAttribute('href', '/istabmprototype' + href);
-  }
-}
 //Link Template to website pages
 // Load navbar
 var xhttp1 = new XMLHttpRequest();
